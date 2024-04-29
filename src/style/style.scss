@@ -1,0 +1,76 @@
+/**
+* 電卓に読み込ませるcss
+*/
+// SP時のvwの設定
+@function cl($vw, $window_w: 375) {
+  @return calc(calc($vw / $window_w) * 100vw);
+}
+
+// TODO::@useが使えないので方法を考える
+$black: #000;
+$orange: orange;
+$white: #fff;
+
+.c-ttl {
+  font-size: 25px;
+  font-weight: bold;
+  color: $white;
+  margin-bottom: 10px;
+}
+
+.p-calculator {
+  color: $white;
+  border: 1px solid $white;
+  padding: 15px;
+  &__data {
+    background: #ccc;
+    color: $black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 60px;
+    padding: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  &__data-num {
+    text-align: right;
+    font-size: min(30px, cl(15));
+    width: calc(100% - 35px);
+  }
+  &__data-back {
+    background: $white;
+    font-size: min(18px, cl(13));
+    padding: 12px 10px 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+  }
+  &__cont {
+  }
+  &__operate {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  &__operate-btn {
+    width: calc(calc(100% - 30px) / 4);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+    color: $black;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    font-size: min(25px, cl(13));
+  }
+  &__operate-btn--orange {
+    background: $orange;
+  }
+}
